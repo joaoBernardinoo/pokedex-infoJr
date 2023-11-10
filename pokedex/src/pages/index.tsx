@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import PokeTeste from '../components/testeAPI'
+import Searchbar from '../components/Searchbar'
 
+import { FC } from 'react';
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <>
       <Head>
@@ -14,9 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Pokedex dos cria</h1>
-        <PokeTeste/>
+        <Searchbar/>
       </main>
     </>
   )
 }
+
+export default Home;
