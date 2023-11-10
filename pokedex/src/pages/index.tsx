@@ -4,6 +4,8 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Searchbar from '../components/Searchbar';
 import LoginModal from '@/components/auth';
+import PokeTeste from '../components/testeAPI';
+import LoginModal from '@/components/Auth/auth';
 import { useEffect, useState } from 'react';
 
 const Home: React.FC = () => {
