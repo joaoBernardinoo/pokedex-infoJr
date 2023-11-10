@@ -1,11 +1,14 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Searchbar from '../components/Searchbar'
+// pages/index.tsx
 
-import { FC } from 'react';
+import Head from 'next/head';
+import styles from '@/styles/Home.module.css';
+import Searchbar from '../components/Searchbar';
+import LoginModal from '@/components/auth';
+import { useEffect, useState } from 'react';
 
-const Home: FC = () => {
+const Home: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+
   return (
     <>
       <Head>
@@ -15,10 +18,13 @@ const Home: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Searchbar/>
+        <Searchbar />
+        {isModalOpen && <LoginModal onClose={() => setIsModalOpen(false)} />}
+        <h1>Pokedex dos cria</h1>
       </main>
     </>
-  )
-}
+  );
+};
 
 export default Home;
+
