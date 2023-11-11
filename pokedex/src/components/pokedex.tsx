@@ -3,6 +3,7 @@ import {useEffect, useState } from "react";
 import Pokemon from "./pokemon";
 
 export default function Pokedex(){
+    // lista com todos os pokemons da página inicial
     const [pokemons, setPokemons] = useState<PokemonUnique[]>([]);
 
     // pega as informações da API
@@ -36,6 +37,7 @@ export default function Pokedex(){
             {pokemons.map((pokemon, index) => {
                 return(
                     <Pokemon 
+                        key={index}
                         name={pokemon.name}
                         sprites={pokemon.sprites}
                         types={pokemon.types}
