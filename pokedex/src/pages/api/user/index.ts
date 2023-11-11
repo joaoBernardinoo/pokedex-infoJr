@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { UserRequest, UserResponse, DeleteUserRequest, GetUserResponse } from '../models/users';
-import { ApiResponse } from '../models/response';
+import { UserRequest, UserResponse, DeleteUserRequest, GetUserResponse } from '../../../types/users';
+import { ApiResponse } from '../../../types/response';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();

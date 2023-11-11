@@ -1,3 +1,5 @@
+import { PokemonUnique } from "@/types/poke"
+
 export default function Pokemon ({name, sprites, types}: PokemonUnique){
     return(
         <div>

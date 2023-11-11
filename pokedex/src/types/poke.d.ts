@@ -1,10 +1,10 @@
-interface PokemonAll{
+export interface PokemonAll{
     name: string;
     url: string;
 }
 
 
-interface TypeElement{
+export interface TypeElement{
     slot: number;
     type: {
         name: string;
@@ -12,7 +12,7 @@ interface TypeElement{
     }
 }
 
-interface PokemonUnique{
+export interface PokemonUnique{
     name: string;
     sprites: {
         front_default: string;

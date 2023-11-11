@@ -1,6 +1,10 @@
 import { getPokemonData, getPokemons } from "@/pages/api/pokemonAPI";
 import {useEffect, useState } from "react";
 import Pokemon from "./pokemon";
+import Searchbar from '@/components/Searchbar';
+import Pokelogo from '@/images/pokelogo.png';
+import Image from 'next/image';
+import { PokemonAll, PokemonUnique } from "@/types/poke";
 
 export default function Pokedex(){
     // lista com todos os pokemons da página inicial
@@ -32,17 +36,23 @@ export default function Pokedex(){
 
     return(
         <div>
-            {/* retorna lista de pokemons da página inicial */}
-            {pokemons.map((pokemon, index) => {
-                return(
-                    <Pokemon 
-                        key={index}
-                        name={pokemon.name}
-                        sprites={pokemon.sprites}
-                        types={pokemon.types}
-                    />
-                ); 
-            })}
+            <Image src={Pokelogo}alt="pokelogo"/>
+            <Searchbar/>
+
+            <div>
+                {/* retorna lista de pokemons da página inicial */}
+                {pokemons.map((pokemon, index) => {
+                    return(
+                        <Pokemon 
+                            key={index}
+                            name={pokemon.name}
+                            sprites={pokemon.sprites}
+                            types={pokemon.types}
+                        />
+                    ); 
+                })}
+            </div>
+            
         </div>
     )
 }
