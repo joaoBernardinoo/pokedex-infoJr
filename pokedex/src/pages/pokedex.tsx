@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function Pokedex() {
     return(
         <div>
-            <Image src={Pokelogo}alt="pokelogo"/>
+            <Image src={Pokelogo} alt="pokelogo"/>
             <Searchbar/>
         </div>
     );
