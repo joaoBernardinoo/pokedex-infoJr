@@ -22,7 +22,6 @@ export default function LoginModal({ onClose }: LoginModalProps) {
       });
   };
 
-  
   return (
     <div>
       <div className="form-container">
@@ -48,7 +47,9 @@ export default function LoginModal({ onClose }: LoginModalProps) {
         </label>
         <div className="button-container">
           <button className="submit-button">Enviar</button>
-          <button className="cancel-button">Cancelar</button>
+          <button className="cancel-button" onClick={onClose}>
+            Cancelar
+          </button>
         </div>
       </div>
     </div>
