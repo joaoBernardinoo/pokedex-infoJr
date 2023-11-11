@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import PokeTeste from '../components/testeAPI'
+import Pokedex from '../components/pokedex'
 
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <main>
         <h1>Pokedex dos cria</h1>
-        <PokeTeste/>
+        <Pokedex/>
       </main>
     </>
   )
