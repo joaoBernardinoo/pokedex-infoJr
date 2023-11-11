@@ -32,8 +32,7 @@ export default function Pokedex(){
 
     return(
         <div>
-            <p>oiiii</p>
-
+            {/* retorna lista de pokemons da página inicial */}
             {pokemons.map((pokemon, index) => {
                 return(
                     <Pokemon 
@@ -44,7 +43,6 @@ export default function Pokedex(){
                     />
                 ); 
             })}
-           
         </div>
     )
 }

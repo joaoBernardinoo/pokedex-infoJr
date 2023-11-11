@@ -2,7 +2,8 @@ export default function Pokemon ({name, sprites, types}: PokemonUnique){
     return(
         <div>
             {/* nome do pokemon */}
-            {name}
+            <p> {name} </p>
+            
 
             {/* imagem do pokemon*/}
             <div>
