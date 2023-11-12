@@ -19,7 +19,7 @@ export default function Home() {
         {isModalOpen && (
           <LoginModal onClose={() => setIsModalOpen(false)}/>
         )}
-        <h1>Pokedex dos cria</h1>
+      
         <Pokedex />
       </main>
     </>

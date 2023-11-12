@@ -1,5 +1,9 @@
 import '@/styles/globals.css'
 import '@/styles/auth.css'
+import '@/styles/Pokedex.css'
+import '@/styles/Pokemons.css'
+import '@/styles/Searchbar.css'
+import '@/styles/auth.css'
 import type { AppProps } from 'next/app'
 import { FavoriteProvider } from '@/contexts/favoritesContext';
 import { useState, useEffect } from 'react';
