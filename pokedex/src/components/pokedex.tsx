@@ -1,5 +1,5 @@
 import Searchbar from '@/components/Searchbar';
-import { getPokemonData, getPokemons, searchPokemon } from "@/pages/api/pokemonAPI";
+import { getPokemonData, getPokemons } from "@/pages/api/pokemonAPI";
 import {useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
 import Pokelogo from '@/images/pokelogo.png';
@@ -37,18 +37,24 @@ export default function Pokedex(){
         fetchPokemons();
     }, []);
 
+    // lida com as mudanças da barra de pesquisa
     const onSearchHandler = async (name: string | undefined) => {
         if(!name) {
             setNotFound(false);
             return fetchPokemons();
         }
     
-        setNotFound(false)
-        const result = await searchPokemon(name);
-        if(!result) {
+        setNotFound(false);
+
+
+        const result = pokemons.filter((pokemon) => {
+            return pokemon.name.toLowerCase().includes(name.toLowerCase());
+        })
+
+        if(result.length == 0) {
           setNotFound(true);
         } else {
-          setPokemons([result]);
+          setPokemons(result);
         } 
       }
 
