@@ -1,7 +1,7 @@
 import Searchbar from '@/components/Searchbar';
-import { getPokemonData, getPokemons, searchPokemon } from '@/pages/api/pokemonAPI';
-import { useEffect, useState } from 'react';
-import Pokemon from './pokemon';
+import { getPokemonData, getPokemons, searchPokemon } from "@/pages/api/pokemonAPI";
+import {useEffect, useState } from "react";
+import Pokemon from "./Pokemon";
 import Pokelogo from '@/images/pokelogo.png';
 import Image from 'next/image';
 import { PokemonAll, PokemonUnique } from '@/types/poke';
@@ -35,48 +35,45 @@ export default function Pokedex() {
     fetchPokemons();
   }, []);
 
-  const onSearchHandler = async (name: string | undefined) => {
-    if (!name) {
-      setNotFound(false);
-      return fetchPokemons();
-    }
+    const onSearchHandler = async (name: string | undefined) => {
+        if(!name) {
+            setNotFound(false);
+            return fetchPokemons();
+        }
+    
+        setNotFound(false)
+        const result = await searchPokemon(name);
+        if(!result) {
+          setNotFound(true);
+        } else {
+          setPokemons([result]);
+        } 
+      }
 
-    setNotFound(false);
-    const result = await searchPokemon(name);
-    if (!result) {
-      setNotFound(true);
-    } else {
-      setPokemons([result]);
-    }
-  };
-
-  return (
-    <div className="pokedex-container">
-      <Image
-        src={Pokelogo}
-        alt="pokelogo"
-        style={{ display: 'block', margin: 'auto', marginTop: '36px' }}
-      />
-      <Searchbar onSearch={onSearchHandler} />
-      <h1>Pokédex</h1>
-      {notFound ? (
-        <h2>Pokemon não encontrado! Você digitou o nome certo?</h2>
-      ) : (
-        <div className="pokemons">
-          {/* retorna lista de pokemons da página inicial */}
-          {pokemons.map((pokemon) => {
-            return (
-              <Pokemon
-                key={pokemon.id}
-                id={pokemon.id}
-                name={pokemon.name}
-                sprites={pokemon.sprites}
-                types={pokemon.types}
-              />
-            );
-          })}
+    return(
+        <div className="body">
+            <Image src={Pokelogo}alt="pokelogo" style={{ display: 'block', margin: 'auto', marginTop: '36px' }}/>
+            <Searchbar onSearch = {onSearchHandler}/>
+            <h1>Pokédex</h1>
+            {notFound ? (
+                <h2>Pokemon não encontrado! Você digitou o nome certo?</h2>
+            ) : 
+                <div className="pokemons">
+                    {/* retorna lista de pokemons da página inicial */}
+                    {pokemons.map((pokemon) => {
+                        return(
+                            <Pokemon
+                                key={pokemon.id}
+                                id={pokemon.id}
+                                name={pokemon.name}
+                                sprites={pokemon.sprites}
+                                types={pokemon.types}
+                            />
+                        ); 
+                    })}
+                </div>
+            }
+            
         </div>
-      )}
-    </div>
-  );
+    )
 }
