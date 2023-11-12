@@ -30,3 +30,13 @@
 .button-container {
   display: flex;
 }
+
+.form-container h1 {
+  font-family: DM Sans;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 62px;
+  letter-spacing: -0.03em;
+  color: #1e293b;
+}
+
