@@ -1,7 +1,7 @@
 import Searchbar from '@/components/Searchbar';
-import { getPokemonData, getPokemons, searchPokemon } from '@/pages/api/pokemonAPI';
+import { getPokemonData, getPokemons } from '@/pages/api/pokemonAPI';
 import { useEffect, useState } from 'react';
-import Pokemon from './pokemon';
+import Pokemon from './Pokemon';
 import Pokelogo from '@/images/pokelogo.png';
 import Image from 'next/image';
 import { PokemonAll, PokemonUnique } from '@/types/poke';
@@ -26,6 +26,7 @@ export default function Pokedex() {
       const data = await Promise.all(promises);
 
       setPokemons(data);
+      
     } catch (error) {
       console.log('fetch error: ', error);
     }
@@ -42,15 +43,16 @@ export default function Pokedex() {
     }
 
     setNotFound(false);
-    try {
-      const result = await searchPokemon(name);
+   
+    const result = pokemons.filter((pokemon) => {
+      return pokemon.name.toLowerCase().includes(name.toLowerCase());
+    });
 
-      if (!result) {
-        setNotFound(true);
-      } else {
-        setPokemons([result]);
-      }
-    } catch (error) {}
+    if (result.length == 0) {
+      setNotFound(true);
+    } else {
+      setPokemons(result);
+    }
   };
 
   return (
