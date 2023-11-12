@@ -19,14 +19,15 @@ export default function Pokedex() {
 
       // pega cada pokemon e extrai o objeto individual dele pela api (contém os atributos do pokemon)
       const promises = result.map(async (pokemon: PokemonAll) => {
-        return await getPokemonData(pokemon.url);
+        const pokeData = await getPokemonData(pokemon.url);
+        const species = await getPokemonData(pokeData.species.url);
+        pokeData.color = species.color.name;
+        return pokeData;
       });
 
       // espera todas as requisições serem feitas para formar a lista
       const data = await Promise.all(promises);
-
       setPokemons(data);
-      
     } catch (error) {
       console.log('fetch error: ', error);
     }
@@ -52,7 +53,7 @@ export default function Pokedex() {
     //     setPokemons([result]);
     //   }
     // } catch (error) {}
-   
+
     const result = pokemons.filter((pokemon) => {
       return pokemon.name.toLowerCase().includes(name.toLowerCase());
     });
@@ -86,6 +87,7 @@ export default function Pokedex() {
                 name={pokemon.name}
                 sprites={pokemon.sprites}
                 types={pokemon.types}
+                color={pokemon.color}
               />
             );
           })}
