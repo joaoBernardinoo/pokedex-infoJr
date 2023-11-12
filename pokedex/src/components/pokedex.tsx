@@ -35,11 +35,11 @@ export default function Pokedex(){
     }, []);
 
     return(
-        <div>
-            <Image src={Pokelogo}alt="pokelogo"/>
+        <div className="body">
+            <Image src={Pokelogo}alt="pokelogo" style={{ display: 'block', margin: 'auto', marginTop: '36px' }}/>
             <Searchbar/>
-
-            <div>
+            <h1>Pokédex</h1>
+            <div className="pokemons">
                 {/* retorna lista de pokemons da página inicial */}
                 {pokemons.map((pokemon, index) => {
                     return(
