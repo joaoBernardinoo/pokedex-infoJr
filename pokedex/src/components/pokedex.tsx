@@ -26,6 +26,7 @@ export default function Pokedex() {
       const data = await Promise.all(promises);
 
       setPokemons(data);
+      
     } catch (error) {
       console.log('fetch error: ', error);
     }
@@ -51,6 +52,16 @@ export default function Pokedex() {
     //     setPokemons([result]);
     //   }
     // } catch (error) {}
+   
+    const result = pokemons.filter((pokemon) => {
+      return pokemon.name.toLowerCase().includes(name.toLowerCase());
+    });
+
+    if (result.length == 0) {
+      setNotFound(true);
+    } else {
+      setPokemons(result);
+    }
   };
 
   return (
