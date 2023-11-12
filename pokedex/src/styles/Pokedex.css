@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Sans:opsz,wght@9..40,300&family=Lato:wght@100;300;400;700&family=Open+Sans&family=Oswald:wght@700&family=Poppins:wght@400;900&family=Quattrocento+Sans&family=Raleway:wght@900&display=swap');
 
 .body {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1020px;
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+h1 {
   padding: 0;
   margin: 0;
   display: flex;
@@ -11,29 +19,83 @@
 
 .body h1 {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 70vw;
-
+  justify-content: center;
   font-family: DM Sans;
   font-size: 48px;
   font-weight: 700;
   line-height: 62px;
   letter-spacing: -0.03em;
   color: #1e293b;
+  margin-bottom: 10px;
 }
 
 .pokemons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 70vw;
+  justify-content: center;
+  align-items: center;
+  max-width: 1020px; 
+  margin: 0 auto; 
 }
 
-.pokemons-types {
+.pokemon {
+  display: flex;
+  width: calc(33.33% - 20px); 
+  max-width: 90vw;
+  height: 156px;
+  border: none;
+  border-radius: 24px;
+  padding: 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background: #7AC74C1A;
+}
+
+.pokemon-sprites img {
+  height: auto;
+  max-width: 100px;
+  max-height: 100px;
+  transform: scale(1.35);
+}
+
+.info {
+  text-align: center;
+  margin-top: -20px;
+}
+
+.pokemon-name {
+  font-family: DM Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: #1E293B;
+}
+
+.pokemon-types {
   width: 55px;
   height: 24px;
-  padding: 4px, 8px, 4px, 8px;
+  padding: 4px 8px; 
   border-radius: 50px;
   gap: 10px;
+  font-family: DM Sans;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.03em;
+  margin: 10px;
+}
+
+@media screen and (max-width: 1020px) {
+  .pokemon {
+    width: calc(90% - 20px); 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pokemon {
+    width: 90vw;
+  }
 }

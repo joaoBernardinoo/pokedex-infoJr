@@ -1,6 +1,13 @@
+// pokemon.tsx
 import { PokemonUnique } from "@/types/poke"
 import React, {useContext} from "react";
 import FavoriteContext from "../contexts/favoritesContext";
+
+interface PokemonProps {
+    name: string;
+    sprites: { front_default: string };
+    types: { type: { name: string } }[];
+  }
 
 
 export default function Pokemon ({id, name, sprites, types}: PokemonUnique){
@@ -10,6 +17,14 @@ export default function Pokemon ({id, name, sprites, types}: PokemonUnique){
     const onHeartClick = () =>{
         updateFavoritePokemons(id);
     }
+
+    const typeColors: Record<string, string> = {
+        grass: '#7AC74C',
+        fire: '#EE8130',
+        water: '#9cc1ed',
+        electric: '#ffff6c',
+      };
+    
     return(
         <div className="pokemon">
             <div className="info">
@@ -19,7 +34,7 @@ export default function Pokemon ({id, name, sprites, types}: PokemonUnique){
                 {/* tipos do pokemon */}
                 {types.map((type, index : number) => {
                     return(
-                        <div className="pokemon-types" key={index}>
+                        <div className="pokemon-types" key={index} style={{ backgroundColor: typeColors[types[0].type.name] || 'gray' }}>
                         {type.type.name}
                         </div>
                         
@@ -33,7 +48,7 @@ export default function Pokemon ({id, name, sprites, types}: PokemonUnique){
             </div>
 
             {/* botão de favoritar */}
-            <button onClick={onHeartClick}>
+            <button className="onHeart" onClick={onHeartClick}>
                 {heart}
             </button>
         </div>
