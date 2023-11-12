@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import FavoriteContext from '../contexts/favoritesContext';
 
 
-export default function Pokemon({ id, name, sprites, types }: PokemonUnique) {
+export default function Pokemon({ id, name, sprites, types, color }: PokemonUnique) {
   const { favoritePokemons, updateFavoritePokemons } = useContext(FavoriteContext);
 
   const heart = favoritePokemons.includes(id) ? '❤️' : '🖤';
@@ -16,11 +16,16 @@ export default function Pokemon({ id, name, sprites, types }: PokemonUnique) {
     grass: '#7AC74C',
     fire: '#EE8130',
     water: '#9cc1ed',
-    electric: '#ffff6c',
+    electric: '#f8d030',
+    bug: '#a8b820',
+    psychic: '#f85888',
+    normal: '#a8a878',
+    poison: '#a040a0',
+    ghost: '#705898'
   };
 
   return (
-    <div className="pokemon">
+    <div className="pokemon" style={{ background: typeColors[types[0].type.name] + '20' }}>
       <div className="info">
         {/* nome do pokemon */}
         <p className="pokemon-name"> {name} </p>
@@ -31,7 +36,7 @@ export default function Pokemon({ id, name, sprites, types }: PokemonUnique) {
             <div
               className="pokemon-types"
               key={index}
-              style={{ backgroundColor: typeColors[types[0].type.name] || 'gray' }}
+              style={{ backgroundColor: typeColors[types[index].type.name] || 'gray' }}
             >
               {type.type.name}
             </div>

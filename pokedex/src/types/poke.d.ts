@@ -18,9 +18,6 @@ export interface PokemonUnique{
     sprites: {
         front_default: string;
     }
-    species?: {
-        url: string;
-    }
     color?: string;
     types: TypeElement[];
 }

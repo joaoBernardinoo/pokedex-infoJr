@@ -1,4 +1,4 @@
-.body{
+.body {
   padding: 0;
   margin: 0;
   width: 90vw;
@@ -11,7 +11,7 @@
 
 .pokemon {
   display: flex;
-  width: calc(33.33% - 20px); 
+  width: calc(33.33% - 20px);
   max-width: 90vw;
   height: 156px;
   border: none;
@@ -20,21 +20,29 @@
   margin: 10px;
   box-sizing: border-box;
   justify-content: space-between;
-  background: #7AC74C1A;
+  transition: transform 0.3s ease;
+}
 
+.pokemon:hover {
+  transform: translateY(-10px);
+}
+
+.pokemon-sprites {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .pokemon-sprites img {
-  height: auto;
-  max-width: 100px;
-  max-height: 100px;
-  transform: scale(1.35);
+  height: 100%;
+  width: 100%;
+  object-fit: none;
+  scale: 1.5;
 }
 
 .info {
   text-align: center;
   margin-top: -20px;
-  
 }
 
 .pokemon-name {
@@ -44,13 +52,12 @@
   line-height: 31px;
   letter-spacing: -0.04em;
   text-align: left;
-  color: #1E293B;
-
+  color: #1e293b;
 }
 
 .pokemon-types {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   width: 55px;
   height: 24px;
@@ -63,12 +70,12 @@
   line-height: 16px;
   letter-spacing: -0.03em;
   margin: 10px;
-  text-align: center; 
+  text-align: center;
 }
 
-.onHeart{
+.onHeart {
   border: none;
-  background: #f1f9ed
+  background: #f1f9ed;
 }
 
 @media screen and (max-width: 1020px) {
