@@ -1,7 +1,7 @@
 import Searchbar from '@/components/Searchbar';
 import { getPokemonData, getPokemons } from '@/pages/api/pokemonAPI';
 import { useEffect, useState } from 'react';
-import Pokemon from './Pokemon';
+import Pokemon from './pokemon';
 import Pokelogo from '@/images/pokelogo.png';
 import Image from 'next/image';
 import { PokemonAll, PokemonUnique } from '@/types/poke';
