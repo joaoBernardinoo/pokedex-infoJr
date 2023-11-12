@@ -19,6 +19,9 @@ const Searchbar = (props: SearchbarProps) => {
         if(e.target.value.length === 0) {
             onSearch(undefined)
         }
+
+        // devolve as palavras q tão sendo digitadas
+        onSearch(e.target.value);
     }
 
     const onButtonClickHandler = () => {

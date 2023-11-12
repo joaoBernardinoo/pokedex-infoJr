@@ -15,27 +15,4 @@ model User {
   createdAt DateTime? @default(now()) @db.DateTime(0)
   updatedAt DateTime? @default(now()) @updatedAt @db.DateTime(0)
   deletedAt DateTime? @db.DateTime(0)
-  favorites Pokemon[]
-}
-
-model Pokemon {
-  id     Int   @id @default(autoincrement())
-  pokeId Int
-  userId Int?
-  User   User? @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Pokemon_ibfk_1")
-
-  @@index([userId], map: "userId")
-}
-
-model Order {
-  id     Int    @id @default(autoincrement())
-  name   String
-  breads Int
-  bill   Float  @db.Float
-}
-
-model pedidos {
-  id       Int    @id @default(autoincrement())
-  nome     String
-  qtd_paes Int
 }

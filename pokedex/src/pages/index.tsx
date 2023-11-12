@@ -1,10 +1,12 @@
 import Head from 'next/head';
-import Pokedex from '../components/Pokedex';
-import LoginModal from '@/components/Auth/auth';
+import Pokedex from '../components/pokedex';
+import LoginModal from '@/components/auth';
 import { useState } from 'react';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+  const { user, error, isLoading } = useUser();
 
   return (
     <>
@@ -15,11 +17,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <button onClick={ () => {setIsModalOpen(true)}}>Sign In</button>
-        {isModalOpen && (
-          <LoginModal onClose={() => setIsModalOpen(false)}/>
-        )}
-      
+        <LoginModal session={user}></LoginModal>
+
+        {/* <button
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          Sign In
+        </button>
+        {isModalOpen && <LoginModal onClose={() => setIsModalOpen(false)} />} */}
+
         <Pokedex />
       </main>
     </>
