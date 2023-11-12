@@ -1,15 +1,26 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 
-const Searchbar = () => {
+interface SearchbarProps{
+    onSearch: (name: string | undefined) => Promise<void>;
+}
+
+const Searchbar = (props: SearchbarProps) => {
     const[search, setSearch] = useState("")
+    const {onSearch} = props;
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("pokemon: ", e.target.value)
         setSearch(e.target.value)
+
+        // se a barra estiver vazia
+        if(e.target.value.length === 0) {
+            onSearch(undefined)
+        }
     }
 
     const onButtonClickHandler = () => {
-        console.log("pokemon: ", search)
+        if(search){
+          onSearch(search);  
+        }
     }
     
     return (

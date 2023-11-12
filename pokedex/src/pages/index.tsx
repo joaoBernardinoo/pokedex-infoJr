@@ -1,14 +1,10 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
-import Pokedex from '../components/pokedex';
+import Pokedex from '../components/Pokedex';
 import LoginModal from '@/components/Auth/auth';
-import { useEffect, useState } from 'react';
-import Searchbar from '@/components/Searchbar';
+import { useState } from 'react';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
 
   return (
     <>
