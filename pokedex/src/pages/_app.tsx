@@ -8,6 +8,8 @@ import type { AppProps } from 'next/app'
 import { FavoriteProvider } from '@/contexts/favoritesContext';
 import { useState, useEffect } from 'react';
 
+
+
 export default function App({ Component, pageProps }: AppProps) {
     // array de favoritos que contém os id's dos pokemons.
     const [favorites, setFavorites] = useState<number[]>([]);

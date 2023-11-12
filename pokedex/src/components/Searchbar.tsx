@@ -1,11 +1,12 @@
 import React, {useState, useContext} from "react";
+import '@/styles/Home.module.css';
+import Pokelogo from '@/images/lupa.png';
+import Image from 'next/image';
+
 
 interface SearchbarProps{
     onSearch: (name: string | undefined) => Promise<void>;
 }
-import '@/styles/Home.module.css';
-import Pokelogo from '@/images/lupa.png';
-import Image from 'next/image';
 
 const Searchbar = (props: SearchbarProps) => {
     const [search, setSearch] = useState("")
