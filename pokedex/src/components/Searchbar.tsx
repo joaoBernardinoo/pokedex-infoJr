@@ -4,7 +4,7 @@ import Pokelogo from '@/images/lupa.png';
 import Image from 'next/image';
 
 const Searchbar = () => {
-    const[search, setSearch] = useState("")
+    const [search, setSearch] = useState("")
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log("pokemon: ", e.target.value)
@@ -14,7 +14,7 @@ const Searchbar = () => {
     const onButtonClickHandler = () => {
         console.log("pokemon: ", search)
     }
-    
+
     return (
         <div className="searchbar-container">
                 <input placeholder="Pesquisar pokémon" onChange={onChangeHandler}/>
