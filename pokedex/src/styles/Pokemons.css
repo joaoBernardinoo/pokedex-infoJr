@@ -27,10 +27,17 @@
   transform: translateY(-10px);
 }
 
+.pokemon-sprites {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .pokemon-sprites img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: none;
+  scale: 1.5;
 }
 
 .info {
