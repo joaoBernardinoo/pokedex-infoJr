@@ -15,4 +15,12 @@ model User {
   createdAt DateTime? @default(now()) @db.DateTime(0)
   updatedAt DateTime? @default(now()) @updatedAt @db.DateTime(0)
   deletedAt DateTime? @db.DateTime(0)
+  favorites  Favorite[]
+}
+
+model Favorite {
+  id  Int  @id @default(autoincrement())
+  pokemonId Int
+  user    User    @relation(fields: [userId], references: [id])
+  userId  Int
 }

@@ -21,10 +21,11 @@ export default function LoginModal({ session }: LoginModalProps) {
   //       console.log(error);
   //     });
   // };
+  
   if (session) {
     return (
       <>
-        <h3>Seja bem-viado {session.nickname}</h3>
+        <h3>Seja bem-vindo {session.nickname}</h3>
         <a href="/api/auth/logout">Deslogar</a>
       </>
     );

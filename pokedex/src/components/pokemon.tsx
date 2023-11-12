@@ -3,11 +3,6 @@ import { PokemonUnique } from '@/types/poke';
 import React, { useContext } from 'react';
 import FavoriteContext from '../contexts/favoritesContext';
 
-interface PokemonProps {
-  name: string;
-  sprites: { front_default: string };
-  types: { type: { name: string } }[];
-}
 
 export default function Pokemon({ id, name, sprites, types }: PokemonUnique) {
   const { favoritePokemons, updateFavoritePokemons } = useContext(FavoriteContext);

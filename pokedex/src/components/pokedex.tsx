@@ -44,16 +44,7 @@ export default function Pokedex() {
     }
 
     setNotFound(false);
-    // try {
-    //   const result = await searchPokemon(name);
-
-    //   if (!result) {
-    //     setNotFound(true);
-    //   } else {
-    //     setPokemons([result]);
-    //   }
-    // } catch (error) {}
-
+    
     const result = pokemons.filter((pokemon) => {
       return pokemon.name.toLowerCase().includes(name.toLowerCase());
     });
