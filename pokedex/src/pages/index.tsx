@@ -25,7 +25,7 @@ export default function Home() {
           }}
         >
           Sign In
-        </button>
+        </button>j
         {isModalOpen && <LoginModal onClose={() => setIsModalOpen(false)} />} */}
 
         <Pokedex />

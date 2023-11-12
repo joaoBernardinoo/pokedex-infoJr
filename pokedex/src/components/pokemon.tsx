@@ -48,7 +48,7 @@ export default function Pokemon ({id, name, sprites, types}: PokemonUnique){
             </div>
 
             {/* botão de favoritar */}
-            <button onClick={onHeartClick}>
+            <button className="onHeart" onClick={onHeartClick}>
                 {heart}
             </button>
         </div>

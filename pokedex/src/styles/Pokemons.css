@@ -1,55 +1,90 @@
-/* Exemplo do arquivo de estilo CSS */
+.body{
+  padding: 0;
+  margin: 0;
+  width: 90vw;
+  max-width: 90vw;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
 
+.pokemon {
+  display: flex;
+  width: calc(33.33% - 20px); 
+  max-width: 90vw;
+  height: 156px;
+  border: none;
+  border-radius: 24px;
+  padding: 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background: #7AC74C1A;
 
+}
+
+.pokemon-sprites img {
+  height: auto;
+  max-width: 100px;
+  max-height: 100px;
+  transform: scale(1.35);
+}
+
+.info {
+  text-align: center;
+  margin-top: -20px;
   
+}
+
+.pokemon-name {
+  font-family: DM Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: #1E293B;
+
+}
+
+.pokemon-types {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  width: 55px;
+  height: 24px;
+  padding: 4px 8px;
+  border-radius: 50px;
+  gap: 10px;
+  font-family: DM Sans;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.03em;
+  margin: 10px;
+  text-align: center; 
+}
+
+.onHeart{
+  border: none;
+  background: #f1f9ed
+}
+
+@media screen and (max-width: 1020px) {
   .pokemon {
-    display: flex;
-    width: calc(33.33% - 20px); 
-    height: 156px;
-    border: none;
-    border-radius: 24px;
-    padding: 20px;
-    margin: 10px;
-    box-sizing: border-box;
-    justify-content: space-between;
-    background: #7AC74C1A;
+    width: calc(90% - 20px); /* Ajuste para ocupar 90% do comprimento da tela */
+  }
 
+  @media screen and (max-width: 1000px) {
+    .pokemon {
+      width: calc(50% - 20px); /* 1 por linha */
+    }
   }
-  
-  .pokemon-sprites img {
-    height: auto;
-    max-width: 100px;
-    max-height: 100px;
-    transform: scale(1.35);
-  }
-  
-  .info {
-    text-align: center;
-    margin-top: -20px;
-    
-  }
-  
-  .pokemon-name {
-    font-family: DM Sans;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 31px;
-    letter-spacing: -0.04em;
-    text-align: left;
-    color: #1E293B;
+}
 
+@media screen and (max-width: 600px) {
+  .pokemon {
+    width: 90vw;
   }
-  
-  .pokemon-types {
-    width: 55px;
-    height: 24px;
-    padding: 4px, 8px, 4px, 8px;
-    border-radius: 50px;
-    gap: 10px;
-    font-family: DM Sans;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    letter-spacing: -0.03em;
-    margin: 10px;
-  }
+}

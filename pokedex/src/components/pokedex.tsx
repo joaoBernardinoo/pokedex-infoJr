@@ -1,5 +1,5 @@
 import Searchbar from '@/components/Searchbar';
-import { getPokemonData, getPokemons, searchPokemon } from '@/pages/api/pokemonAPI';
+import { getPokemonData, getPokemons } from '@/pages/api/pokemonAPI';
 import { useEffect, useState } from 'react';
 import Pokemon from './pokemon';
 import Pokelogo from '@/images/pokelogo.png';
@@ -42,15 +42,15 @@ export default function Pokedex() {
     }
 
     setNotFound(false);
-    try {
-      const result = await searchPokemon(name);
+    // try {
+    //   const result = await searchPokemon(name);
 
-      if (!result) {
-        setNotFound(true);
-      } else {
-        setPokemons([result]);
-      }
-    } catch (error) {}
+    //   if (!result) {
+    //     setNotFound(true);
+    //   } else {
+    //     setPokemons([result]);
+    //   }
+    // } catch (error) {}
   };
 
   return (
