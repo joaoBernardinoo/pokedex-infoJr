@@ -65,18 +65,19 @@
   border-radius: 50px;
   gap: 10px;
   font-family: DM Sans;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 16px;
   letter-spacing: -0.03em;
   margin: 10px;
   text-align: center;
+  color: var(--white, #FFF);
 }
 
 .onHeart {
   position: relative;
   border: none;
-  background: #f1f9ed;
+  background: #00000000;
   cursor: pointer;
 }
 
