@@ -74,18 +74,23 @@ export default function Pokedex() {
 
   return (
     <div className="body">
-      <Image
-        src={Pokelogo}
-        alt="pokelogo"
-        style={{ display: 'block', margin: 'auto', marginTop: '36px', marginLeft: '47vw', marginRight: '47vw' }}
-      />
+      <div className='title'>
+        <Image
+          src={Pokelogo}
+          alt="pokelogo"
+          style={{ display: 'block' }}
+        />
+        <h1>Pokédex</h1>
+      </div>
+
       <Searchbar onSearch={onSearchHandler} />
-      <h1>Pokédex</h1>
+
       <div className='filters'>
-        <h3>Filtro</h3>
+        <h3>Filtro:</h3>
         <button onClick={fetchPokemons} className='fetchPokemons'>Todos os Pokemons</button>
         <button onClick={filterFavorites} className='filterFavorites'>Apenas os favoritos</button>
       </div>
+
       {notFound ? (
         <h2>Pokemon não encontrado! Você digitou o nome certo?</h2>
       ) : (

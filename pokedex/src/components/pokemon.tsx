@@ -40,18 +40,20 @@ export default function Pokemon({ id, name, sprites, types, color }: PokemonUniq
         {/* nome do pokemon */}
         <p className="pokemon-name"> {name[0].toUpperCase() + name.slice(1)} </p>
 
-        {/* tipos do pokemon */}
-        {types.map((type, index: number) => {
-          return (
-            <div
-              className="pokemon-types"
-              key={index}
-              style={{ backgroundColor: typeColors[types[index].type.name] || 'gray' }}
-            >
-              {type.type.name.toUpperCase()}
-            </div>
-          );
-        })}
+        <div className='types-container'>
+          {/* tipos do pokemon */}
+          {types.map((type, index: number) => {
+            return (
+              <div
+                className="pokemon-types"
+                key={index}
+                style={{ backgroundColor: typeColors[types[index].type.name] || 'gray' }}
+              >
+                {type.type.name.toUpperCase()}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* imagem do pokemon*/}
