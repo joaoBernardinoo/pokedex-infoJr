@@ -36,7 +36,9 @@ h3{
 @media screen and (max-width: 600px) {
     .login{
         top: 60px;
-        right: 150px;
+        left: 0px;
+        transform: translateX(90%);
+
     }
 
     .logout{

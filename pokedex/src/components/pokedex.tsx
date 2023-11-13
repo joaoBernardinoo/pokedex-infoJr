@@ -86,7 +86,7 @@ export default function Pokedex() {
       <Searchbar onSearch={onSearchHandler} />
 
       <div className='filters'>
-        <h3>Filtro:</h3>
+        <h3 className='filter'>Filtro:</h3>
         <button onClick={fetchPokemons} className='fetchPokemons'>Todos os Pokemons</button>
         <button onClick={filterFavorites} className='filterFavorites'>Apenas os favoritos</button>
       </div>
