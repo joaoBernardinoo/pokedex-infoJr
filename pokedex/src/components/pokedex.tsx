@@ -27,8 +27,6 @@ export default function Pokedex() {
       // pega cada pokemon e extrai o objeto individual dele pela api (contém os atributos do pokemon)
       const promises = result.map(async (pokemon: PokemonAll) => {
         const pokeData = await getPokemonData(pokemon.url);
-        const species = await getPokemonData(pokeData.species.url);
-        pokeData.color = species.color.name;
         return pokeData;
       });
 
