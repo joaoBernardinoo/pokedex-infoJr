@@ -51,7 +51,7 @@ export default function Pokemon({ id, name, sprites, types, color }: PokemonUniq
       </div>
 
       {/* botão de favoritar */}
-      <button className="onHeart" onClick={onHeartClick}>
+      <button className="onHeart" onClick={onHeartClick} style={{ background: typeColors[types[0].type.name] + '00'}}>
         {heart}
       </button>
     </div>

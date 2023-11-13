@@ -7,10 +7,10 @@ export default function LoginModal({ session }: LoginModalProps) {
     return (
       <>
         <h3>Seja bem-vindo {session.nickname}</h3>
-        <a href="/api/auth/logout">Deslogar</a>
+        <a href="/api/auth/logout" className="login">Deslogar</a>
       </>
     );
   }
 
-  return <a href="/api/auth/login">Login</a>;
+  return <a href="/api/auth/login" className="login">Login</a>;
 }
