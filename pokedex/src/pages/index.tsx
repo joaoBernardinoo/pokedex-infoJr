@@ -79,13 +79,11 @@ export default function Home() {
     if (user){
       // procura se tem usuário no banco de dados com esse email
       try {
+        console.log(user.email);
         const res = await fetch(`./api/user?email=${user.email}`);
 
-        if (!res.ok) {
-          throw new Error('Erro na solicitação de verificação de usuário');
-        }
-
         const data = await res.json();
+        console.log(data);
         // se tem, pega o id para mostrar os favoritos
         if(data.success && data.data.userExists){
           setUserId(data.data.userId);
