@@ -77,10 +77,15 @@ export default function Pokedex() {
       <Image
         src={Pokelogo}
         alt="pokelogo"
-        style={{ display: 'block', margin: 'auto', marginTop: '36px' }}
+        style={{ display: 'block', margin: 'auto', marginTop: '36px', marginLeft: '47vw', marginRight: '47vw' }}
       />
       <Searchbar onSearch={onSearchHandler} />
       <h1>Pokédex</h1>
+      <div className='filters'>
+        <h3>Filtro</h3>
+        <button onClick={fetchPokemons} className='fetchPokemons'>Todos os Pokemons</button>
+        <button onClick={filterFavorites} className='filterFavorites'>Apenas os favoritos</button>
+      </div>
       {notFound ? (
         <h2>Pokemon não encontrado! Você digitou o nome certo?</h2>
       ) : (
@@ -100,11 +105,6 @@ export default function Pokedex() {
           })}
         </div>
       )}
-      <div>
-        <h3>Filtro</h3>
-        <button onClick={fetchPokemons}>Todas os Pokemons</button>
-        <button onClick={filterFavorites}>Apenas os favoritos</button>
-      </div>
 
     </div>
   );

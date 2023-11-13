@@ -1,0 +1,27 @@
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(46, 43, 43);
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 50px;
+    margin-bottom: 10px;
+    background-color: rgb(96, 194, 96);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: DM Sans;
+}
+
+h3{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 10px;
+    color: rgb(46, 43, 43);
+    font-size: 18px;
+    font-weight: 400;
+    font-family: DM Sans;
+}

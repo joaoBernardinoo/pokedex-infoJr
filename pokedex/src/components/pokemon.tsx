@@ -22,14 +22,23 @@ export default function Pokemon({ id, name, sprites, types, color }: PokemonUniq
     psychic: '#f85888',
     normal: '#a8a878',
     poison: '#a040a0',
-    ghost: '#705898'
+    ghost: '#705898',
+    ground: '#e1c168',
+    flying: '#a991f0',
+    fighting: '#c03028',
+    fairy: '#ef9aae',
+    rock: '#b8a038',
+    steel: '#b8b8d0',
+    ice: '#98d8d8',
+    dragon: '#7038f8',
+    dark: '#705848',
   };
 
   return (
     <div className="pokemon" style={{ background: typeColors[types[0].type.name] + '20' }}>
       <div className="info">
         {/* nome do pokemon */}
-        <p className="pokemon-name"> {name} </p>
+        <p className="pokemon-name"> {name[0].toUpperCase() + name.slice(1)} </p>
 
         {/* tipos do pokemon */}
         {types.map((type, index: number) => {
@@ -39,7 +48,7 @@ export default function Pokemon({ id, name, sprites, types, color }: PokemonUniq
               key={index}
               style={{ backgroundColor: typeColors[types[index].type.name] || 'gray' }}
             >
-              {type.type.name}
+              {type.type.name.toUpperCase()}
             </div>
           );
         })}
@@ -51,7 +60,7 @@ export default function Pokemon({ id, name, sprites, types, color }: PokemonUniq
       </div>
 
       {/* botão de favoritar */}
-      <button className="onHeart" onClick={onHeartClick}>
+      <button className="onHeart" onClick={onHeartClick} style={{ background: typeColors[types[0].type.name] + '00'}}>
         {heart}
       </button>
     </div>
