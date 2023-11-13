@@ -1,4 +1,4 @@
-.login{
+.login, .logout{
     position:absolute;
     display: flex;
     justify-content: center;
@@ -18,9 +18,10 @@
     transition: transform 0.3s ease;
 }
 
-.login:hover{
+.login:hover, .logout:hover{
     transform: translateY(-3px);
 }
+
 
 h3{
     display: flex;
@@ -28,6 +29,19 @@ h3{
     margin-top: 10px;
     color: rgb(46, 43, 43);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 800;
     font-family: DM Sans;
 }
+
+@media screen and (max-width: 600px) {
+    .login{
+        top: 60px;
+        right: 150px;
+    }
+
+    .logout{
+        top: 110px;
+        right: 150px;
+    }
+  }
+  
