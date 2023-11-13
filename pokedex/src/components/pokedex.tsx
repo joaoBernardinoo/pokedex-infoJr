@@ -17,9 +17,9 @@ export default function Pokedex() {
   const { favoritePokemons } = useContext(FavoriteContext);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const fetchPokemons = async (limit = 9, offset = 0) => {
+  const fetchPokemons = async () => {
     try {
-      const result = await getPokemons(limit, offset);
+      const result = await getPokemons();
       const promises = result.map(async (pokemon: PokemonAll) => {
         const pokeData = await getPokemonData(pokemon.url);
         return pokeData;
@@ -52,8 +52,8 @@ export default function Pokedex() {
   const loadMorePokemons = async () => {
     const currentLength = visiblePokemons.length;
     const totalLength = pokemons.length;
-    
-    if (totalLength + 9 >= currentLength) {
+
+    if (totalLength + 18 >= currentLength) {
       const newData = await fetchMorePokemons(totalLength)
       if (newData)
       setPokemons([...pokemons,...newData]);
@@ -101,7 +101,7 @@ export default function Pokedex() {
       }
   };
   useEffect(() => {
-    fetchPokemons(9);
+    fetchPokemons();
   }, []);
 
   useEffect(() => {
