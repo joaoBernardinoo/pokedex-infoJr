@@ -1,6 +1,7 @@
 .login, .logout{
     position:absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -34,14 +35,14 @@ h3{
 }
 
 @media screen and (max-width: 600px) {
-    .login{
-        top: 60px;
-        right: 150px;
+    .login, .logout{
+        position: unset;
+        margin: 0;
     }
 
-    .logout{
-        top: 110px;
-        right: 150px;
+    h3{
+        margin-left: 0;
+        margin-top: 0;
     }
   }
   

@@ -5,6 +5,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import { FavoriteProvider } from '@/contexts/favoritesContext';
 import { useState, useEffect } from 'react';
 
+
 export default function Home() {
   const { user, error, isLoading } = useUser();
   // array de favoritos que contém os id's dos pokemons.
