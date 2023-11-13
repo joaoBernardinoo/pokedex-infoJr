@@ -5,12 +5,19 @@ import Pokemon from './pokemon';
 import Pokelogo from '@/images/pokelogo.png';
 import Image from 'next/image';
 import { PokemonAll, PokemonUnique } from '@/types/poke';
+import React, { useContext } from 'react';
+import FavoriteContext from '../contexts/favoritesContext';
+
 
 export default function Pokedex() {
   // lista com todos os pokemons da página inicial
   const [pokemons, setPokemons] = useState<PokemonUnique[]>([]);
   const [notFound, setNotFound] = useState(false);
+  const { favoritePokemons } = useContext(FavoriteContext);
 
+  // ---------------------------------
+  // Funções
+  
   // pega as informações da API
   const fetchPokemons = async () => {
     try {
@@ -33,10 +40,7 @@ export default function Pokedex() {
     }
   };
 
-  useEffect(() => {
-    fetchPokemons();
-  }, []);
-
+  // altera ambiente do site de acordo com o que é digitado
   const onSearchHandler = async (name: string | undefined) => {
     if (!name) {
       setNotFound(false);
@@ -55,6 +59,18 @@ export default function Pokedex() {
       setPokemons(result);
     }
   };
+
+  const filterFavorites = () => {
+    const result = pokemons.filter((pokemon) => favoritePokemons.includes(pokemon.id));
+    setPokemons(result);
+  }
+
+  // ---------------------------------------
+  // Efeitos dinâmicos
+  useEffect(() => {
+    fetchPokemons();
+  }, []);
+
 
   return (
     <div className="body">
@@ -84,6 +100,12 @@ export default function Pokedex() {
           })}
         </div>
       )}
+      <div>
+        <h3>Filtro</h3>
+        <button onClick={fetchPokemons}>Todas os Pokemons</button>
+        <button onClick={filterFavorites}>Apenas os favoritos</button>
+      </div>
+
     </div>
   );
 }

@@ -9,6 +9,7 @@ export default function Pokemon({ id, name, sprites, types, color }: PokemonUniq
 
   const heart = favoritePokemons.includes(id) ? '❤️' : '🖤';
   const onHeartClick = () => {
+    console.log("clique funciona");
     updateFavoritePokemons(id);
   };
 

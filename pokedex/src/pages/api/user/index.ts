@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { UserRequest, UserResponse, DeleteUserRequest, GetUserResponse } from '../../../types/users';
 import { ApiResponse } from '../../../types/response';
-import { PrismaClient } from '@prisma/client';
+import  prisma  from '../prisma';
 
-const prisma = new PrismaClient();
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -24,7 +24,7 @@ async function handlePostRequest(
   res: NextApiResponse<ApiResponse<UserResponse>>
 ) {
   try {
-    const { name, email, password } = req.body as UserRequest;
+    const { name, email } = req.body as UserRequest;
 
     if (false) {
       return res.status(400).json({
@@ -37,7 +37,6 @@ async function handlePostRequest(
       data: {
         email,
         name,
-        password,
       },
     });
 
@@ -45,7 +44,6 @@ async function handlePostRequest(
       id: user.id,
       email: user.email,
       name: user.name || '',
-      password: user.password,
     };
 
 
@@ -97,21 +95,43 @@ async function handleGetRequest(
   req: NextApiRequest,
   res: NextApiResponse<ApiResponse<GetUserResponse>>
 ) {
-  try {
-    const users = await prisma.user.findMany();
-    const usersCount = await prisma.user.count();
-    const response: GetUserResponse = {
-      data: users,
-    };
+  // Obtenha o e-mail da consulta
+  const { email } = req.query;
 
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({
+      success: false,
+      error: 'Invalid email parameter',
+    });
+  }
+
+  try {
+    // Consulte o banco de dados para verificar se o e-mail existe
+    const user = await prisma.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: 'User not found',
+      });
+    }
+
+    // O e-mail pertence a um usuário no banco de dados
     return res.status(200).json({
       success: true,
-      data: response,
+      data: {
+        userExists: true,
+        userId: user.id,
+      },
     });
   } catch (error) {
     return res.status(500).json({
       success: false,
-      error: 'Failed to retrieve users',
+      error: 'Error checking email in the database',
     });
   }
 }
